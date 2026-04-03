@@ -1,8 +1,8 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { createLibraryEntrySchema } from '../../shared/schemas'
-import { requireAuth } from '../_lib/auth'
-import { clearEntries, insertEntry, listEntries } from '../_lib/db'
-import { allowMethods, handleApiError, json } from '../_lib/http'
+import { createLibraryEntrySchema } from '../../shared/schemas.js'
+import { requireAuth } from '../_lib/auth.js'
+import { clearEntries, insertEntry, listEntries } from '../_lib/db.js'
+import { allowMethods, handleApiError, json } from '../_lib/http.js'
 
 export default async function handler(request: VercelRequest, response: VercelResponse) {
   if (!(await requireAuth(request, response))) {

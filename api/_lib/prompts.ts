@@ -5,8 +5,8 @@ import {
   SECTION_TAGS,
   SECTION_TYPES,
   USE_CASE_TAGS,
-} from '../../shared/constants'
-import type { AnalyzeRequest } from '../../shared/types'
+} from '../../shared/constants.js'
+import type { AnalyzeRequest } from '../../shared/types.js'
 
 const controlledVocab = `CONTROLLED VOCABULARIES (use ONLY these values):
 

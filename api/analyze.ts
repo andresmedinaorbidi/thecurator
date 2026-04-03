@@ -1,8 +1,8 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { analysisRequestSchema } from '../shared/schemas'
-import { requireAuth } from './_lib/auth'
-import { analyzeWithGemini } from './_lib/gemini'
-import { allowMethods, handleApiError, json } from './_lib/http'
+import { analysisRequestSchema } from '../shared/schemas.js'
+import { requireAuth } from './_lib/auth.js'
+import { analyzeWithGemini } from './_lib/gemini.js'
+import { allowMethods, handleApiError, json } from './_lib/http.js'
 
 export default async function handler(request: VercelRequest, response: VercelResponse) {
   if (request.method !== 'POST') {

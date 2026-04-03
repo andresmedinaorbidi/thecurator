@@ -4,9 +4,9 @@ import {
   sectionResponseJsonSchema,
   siteReferenceSchema,
   siteResponseJsonSchema,
-} from '../../shared/schemas'
-import type { AnalyzeRequest, AnalyzeResponse } from '../../shared/types'
-import { buildPrompt } from './prompts'
+} from '../../shared/schemas.js'
+import type { AnalyzeRequest, AnalyzeResponse } from '../../shared/types.js'
+import { buildPrompt } from './prompts.js'
 
 function getClient() {
   const apiKey = process.env.GEMINI_API_KEY

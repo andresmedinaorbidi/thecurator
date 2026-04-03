@@ -1,8 +1,8 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { z } from 'zod'
-import { requireAuth } from '../_lib/auth'
-import { deleteEntry } from '../_lib/db'
-import { allowMethods, handleApiError, json } from '../_lib/http'
+import { requireAuth } from '../_lib/auth.js'
+import { deleteEntry } from '../_lib/db.js'
+import { allowMethods, handleApiError, json } from '../_lib/http.js'
 
 const paramsSchema = z.object({
   id: z.string().uuid(),

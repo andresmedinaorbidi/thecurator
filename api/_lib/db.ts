@@ -1,5 +1,5 @@
 import { neon } from '@neondatabase/serverless'
-import type { AnalysisMode, AnalysisResult, LibraryEntry } from '../../shared/types'
+import type { AnalysisMode, AnalysisResult, LibraryEntry } from '../../shared/types.js'
 
 let sqlClient: ReturnType<typeof neon> | null = null
 

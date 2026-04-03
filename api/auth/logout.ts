@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { clearSessionCookie } from '../_lib/auth'
-import { allowMethods, json } from '../_lib/http'
+import { clearSessionCookie } from '../_lib/auth.js'
+import { allowMethods, json } from '../_lib/http.js'
 
 export default async function handler(request: VercelRequest, response: VercelResponse) {
   if (request.method !== 'POST') {

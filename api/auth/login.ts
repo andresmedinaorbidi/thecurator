@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { sessionRequestSchema } from '../../shared/schemas'
-import { createSessionToken, setSessionCookie } from '../_lib/auth'
-import { allowMethods, handleApiError, json } from '../_lib/http'
+import { sessionRequestSchema } from '../../shared/schemas.js'
+import { createSessionToken, setSessionCookie } from '../_lib/auth.js'
+import { allowMethods, handleApiError, json } from '../_lib/http.js'
 
 export default async function handler(request: VercelRequest, response: VercelResponse) {
   if (request.method !== 'POST') {
