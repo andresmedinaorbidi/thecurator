@@ -21,8 +21,27 @@ async function request<T>(input: RequestInfo | URL, init?: RequestInit): Promise
   }
 
   if (!response.ok) {
-    const data = (await response.json().catch(() => null)) as { error?: string } | null
-    throw new Error(data?.error || `Request failed with ${response.status}`)
+    const data = (await response.json().catch(() => null)) as
+      | {
+          error?: string
+          details?: {
+            fieldErrors?: Record<string, string[]>
+            formErrors?: string[]
+          }
+        }
+      | null
+
+    const fieldMessages = data?.details?.fieldErrors
+      ? Object.entries(data.details.fieldErrors)
+          .flatMap(([field, messages]) => messages.map((message) => `${field}: ${message}`))
+          .join(' | ')
+      : ''
+    const formMessages = data?.details?.formErrors?.join(' | ') || ''
+    const detailText = [fieldMessages, formMessages].filter(Boolean).join(' | ')
+
+    throw new Error(
+      detailText ? `${data?.error || 'Request failed'} ${detailText}` : data?.error || `Request failed with ${response.status}`,
+    )
   }
 
   return (await response.json()) as T

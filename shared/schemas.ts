@@ -56,9 +56,9 @@ export const siteReferenceSchema = z.object({
     })
     .optional(),
   sections_identified: z.array(siteSectionSchema).optional(),
-  overall_score: z.number().optional(),
+  overall_score: z.coerce.number().optional(),
   best_for: z.array(z.string()).optional(),
-  key_insight: z.string().optional(),
+  key_insight: z.string().catch('No key insight returned.'),
   _note: z.string().optional(),
 })
 
@@ -89,8 +89,8 @@ export const sectionPatternSchema = z.object({
   audience: z.array(z.string()).optional(),
   design_style: z.array(z.string()).optional(),
   data_requirements: z.array(z.string()).optional(),
-  quality_score: z.number().optional(),
-  key_insight: z.string().optional(),
+  quality_score: z.coerce.number().optional(),
+  key_insight: z.string().catch('No key insight returned.'),
   _note: z.string().optional(),
 })
 

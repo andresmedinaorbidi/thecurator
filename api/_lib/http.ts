@@ -11,6 +11,7 @@ export function allowMethods(response: VercelResponse, methods: string[]) {
 
 export function handleApiError(response: VercelResponse, error: unknown) {
   if (error instanceof ZodError) {
+    console.error('Zod validation error', JSON.stringify(error.flatten()))
     return json(response, 400, {
       error: 'Invalid request or model response.',
       details: error.flatten(),
